@@ -1,0 +1,22 @@
+# Theme: Rosewood
+# Author: leraniode
+
+printf "\033]10;#e0dbda\007"
+printf "\033]11;#0a0508\007"
+printf "\033]12;#dd50aa\007"
+printf "\033]4;0;#0a0508\007"
+printf "\033]4;1;#e7566d\007"
+printf "\033]4;2;#42a939\007"
+printf "\033]4;3;#dd6742\007"
+printf "\033]4;4;#2199d6\007"
+printf "\033]4;5;#ca4fe6\007"
+printf "\033]4;6;#38a1a1\007"
+printf "\033]4;7;#e0dbda\007"
+printf "\033]4;8;#31242b\007"
+printf "\033]4;9;#f08d97\007"
+printf "\033]4;10;#48ce3d\007"
+printf "\033]4;11;#ef9275\007"
+printf "\033]4;12;#48baf9\007"
+printf "\033]4;13;#dc87f0\007"
+printf "\033]4;14;#3ac4c5\007"
+printf "\033]4;15;#fdfdfd\007"

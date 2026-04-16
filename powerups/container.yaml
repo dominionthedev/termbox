@@ -1,0 +1,16 @@
+name: container
+description: "Container tooling — podman-first, docker-compatible"
+version: "1.0.0"
+scripts:
+  - dex
+  - cpods
+  - clogs
+  - cclean
+tools: []
+rules:
+  always: false
+  requires:
+    - podman
+  env:
+    - kind: env_set
+      value: CONTAINER_HOST

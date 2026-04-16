@@ -1,0 +1,210 @@
+# ============================================================================
+# config/shell/zshrc — Termbox ZSH config
+#
+# This file is SOURCED by your shell, not owned by it.
+# Your ~/.zshrc must have exactly these two lines at the top:
+#
+#   # ---- termbox env ----
+#   source $HOME/Developer/termbox/config/termbox.env
+#   # ---- termbox zsh ----
+#   source $TERMBOX_HOME/config/shell/zshrc
+#
+# All variables (TERMBOX_HOME, SHELL_THEME, NOTE_FOLDER, BANNER, etc.)
+# come from termbox.env which is sourced first.
+# Edit those values there — not here.
+# ============================================================================
+
+# ── XDG ──────────────────────────────────────────────────────────────────────
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
+
+# ── Editor ───────────────────────────────────────────────────────────────────
+export EDITOR="${EDITOR:-nvim}"
+export VISUAL="${VISUAL:-nvim}"
+export PAGER="${PAGER:-bat}"
+export MANPAGER="bat -l man -p"
+
+# ── Theme ─────────────────────────────────────────────────────────────────────
+# PATH is injected by termbox.env (sourced before this file)
+# theme.env sources the active .theme file which:
+#   - exports THEME_* colour variables
+#   - configures ZSH_HIGHLIGHT_STYLES
+#   - emits OSC sequences to colour the terminal emulator
+[[ -f "$TERMBOX_HOME/config/theme.env" ]] && source "$TERMBOX_HOME/config/theme.env"
+
+# ── Plugins (Zinit) ──────────────────────────────────────────────────────────
+ZINIT_HOME="${XDG_DATA_HOME}/zinit/zinit.git"
+if [[ ! -d "$ZINIT_HOME" ]]; then
+    mkdir -p "$(dirname "$ZINIT_HOME")"
+    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+source "${ZINIT_HOME}/zinit.zsh"
+
+zinit light zdharma-continuum/fast-syntax-highlighting
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-history-substring-search
+zinit light MichaelAquilina/zsh-auto-notify
+zinit light MichaelAquilina/zsh-you-should-use
+zinit light Aloxaf/fzf-tab
+zinit light wfxr/forgit
+
+# ── History ──────────────────────────────────────────────────────────────────
+HISTSIZE=50000
+SAVEHIST=50000
+HISTFILE="${XDG_DATA_HOME}/zsh/history"
+mkdir -p "$(dirname "$HISTFILE")"
+
+setopt EXTENDED_HISTORY HIST_EXPIRE_DUPS_FIRST HIST_IGNORE_DUPS HIST_IGNORE_ALL_DUPS
+setopt HIST_FIND_NO_DUPS HIST_IGNORE_SPACE HIST_SAVE_NO_DUPS SHARE_HISTORY
+
+# ── Options ──────────────────────────────────────────────────────────────────
+setopt AUTO_CD AUTO_PUSHD PUSHD_IGNORE_DUPS PUSHD_SILENT
+setopt CORRECT INTERACTIVE_COMMENTS NO_BEEP PROMPT_SUBST
+
+# ── Vi mode ──────────────────────────────────────────────────────────────────
+bindkey -v
+export KEYTIMEOUT=1
+bindkey '^R' history-incremental-search-backward
+bindkey '^S' history-incremental-search-forward
+bindkey '^P' up-line-or-search
+bindkey '^N' down-line-or-search
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
+bindkey '^K' kill-line
+bindkey '^U' backward-kill-line
+bindkey '^W' backward-kill-word
+bindkey '^Y' yank
+
+# ── Completions ──────────────────────────────────────────────────────────────
+mkdir -p "${XDG_CACHE_HOME}/zsh"
+autoload -Uz compinit
+compinit -d "${XDG_CACHE_HOME}/zsh/zcompdump-$ZSH_VERSION"
+
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:descriptions' format '%F{cyan}-- %d --%f'
+zstyle ':completion:*:warnings'     format '%F{red}-- no matches --%f'
+zstyle ':completion:*' special-dirs true
+zstyle ':fzf-tab:*' fzf-command fzf
+zstyle ':fzf-tab:*' fzf-flags --height=40% --reverse --border
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -1 --color=always $realpath'
+
+# ── Tool integrations ────────────────────────────────────────────────────────
+command -v starship &>/dev/null && eval "$(starship init zsh)"
+command -v zoxide   &>/dev/null && eval "$(zoxide init zsh)"
+command -v fzf      &>/dev/null && source <(fzf --zsh)
+command -v thefuck  &>/dev/null && eval "$(thefuck --alias)"
+
+# Podman as docker-compatible alias
+command -v podman &>/dev/null && ! command -v docker &>/dev/null && alias docker='podman'
+
+# ── Aliases ──────────────────────────────────────────────────────────────────
+alias ls='eza --icons --group-directories-first'
+alias ll='eza --icons --long --group-directories-first'
+alias la='eza --icons --long --all --group-directories-first'
+alias tree='eza --icons --tree'
+alias grep='rg'
+alias find='fd'
+alias top='htop'
+alias ps='procs'
+alias du='dust'
+
+alias g='git'
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+alias gl='git log --oneline --graph --decorate'
+alias gd='git diff'
+alias gco='git checkout'
+alias gb='git branch'
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ~='cd ~'
+alias -- -='cd -'
+
+alias t='tmux'
+alias ta='tmux attach-session -t'
+alias tk='tmux kill-session -t'
+
+# tb = termbox CLI
+alias tb='termbox'
+
+# nvim using configured default config
+# Tries TERMBOX_DEFAULT_NVIM.nvim/init.lua, falls back to system nvim
+alias v='nvim -u "$TERMBOX_HOME/config/nvim/${TERMBOX_DEFAULT_NVIM:-default}.nvim/init.lua" 2>/dev/null || nvim'
+alias vi='nvim'
+alias vim='nvim'
+alias nv='nvim'
+
+# Edit termbox config directly
+alias tbenv='${EDITOR} $TERMBOX_HOME/config/termbox.env'
+alias tbrc='${EDITOR}  $TERMBOX_HOME/config/registry.yaml'
+alias zshrc='${EDITOR} ~/.zshrc'
+alias tmuxrc='${EDITOR} $TERMBOX_HOME/config/tmux/default.conf'
+
+alias reload='source ~/.zshrc'
+alias path='echo $PATH | tr ":" "\n"'
+alias myip='curl -s https://api.ipify.org && echo'
+
+# ── Shell Functions ──────────────────────────────────────────────────────────
+# Note: note, banner, and major utility scripts live in termbox tools/scripts.
+# Functions here are ones that MUST affect shell state (cd, etc.) or are
+# trivial enough not to warrant a standalone script.
+
+# Interactive file search → nvim
+ff() {
+    local f
+    f=$(fd --type f --hidden --follow --exclude .git |
+        fzf --preview 'bat --color=always {}' --height=80% --reverse --border)
+    [[ -n "$f" ]] && nvim "$f"
+}
+
+# Interactive directory jump
+fcd() {
+    local d
+    d=$(fd --type d --hidden --follow --exclude .git |
+        fzf --preview 'eza --icons --tree --level=2 {}' --height=80% --reverse --border)
+    [[ -n "$d" ]] && cd "$d"
+}
+
+# Interactive git branch checkout (must affect shell — stays as function)
+fco() {
+    local fzf_bin="fzf"
+    command -v fzf-tmux &>/dev/null && [[ -n "$TMUX" ]] && fzf_bin="fzf-tmux -d 15"
+    local branch
+    branch=$(git branch --all | grep -v HEAD | $fzf_bin +m) || return
+    git checkout "$(echo "$branch" | sed 's/.* //' | sed 's#remotes/[^/]*/##')"
+}
+
+# Interactive git log browser
+flog() {
+    git log --graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+    fzf --ansi --no-sort --reverse --tiebreak=index \
+        --preview 'git show --color=always {2}' \
+        --bind 'enter:execute(git show --color=always {2} | less -R)'
+}
+
+# Jump to project dir (cd affects shell)
+proj() {
+    local p
+    p=$(zoxide query -l |
+        fzf --preview 'eza --icons --tree --level=2 {}' --height=80% --reverse --border)
+    [[ -n "$p" ]] && cd "$p" && nvim
+}
+
+mkcd()   { mkdir -p "$1" && cd "$1"; }
+backup() { cp "$1" "$1.backup.$(date +%Y%m%d_%H%M%S)"; }
+
+# ── Banner ────────────────────────────────────────────────────────────────────
+# Banner is now a proper termbox tool: 'termbox banner show'
+# Called here at shell start if TERMBOX_SHOW_BANNER=true.
+if [[ -z "$TMUX" ]] && [[ "$SHLVL" -eq 1 ]] && [[ "${TERMBOX_SHOW_BANNER:-true}" == "true" ]]; then
+    command -v termbox &>/dev/null && termbox banner show 2>/dev/null || true
+fi

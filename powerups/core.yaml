@@ -1,0 +1,20 @@
+name: core
+description: "Essential shell utilities — always active"
+version: "1.0.0"
+source: ""  # built-in, no remote source
+scripts:
+  - search
+  - fkill
+  - serve
+  - extract
+  - stats
+  - diagnostics
+  - gci
+tools:
+  - noter
+  - banner
+  - shelldoctor
+  - shellconfig
+  - spicer
+rules:
+  always: true

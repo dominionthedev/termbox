@@ -1,0 +1,36 @@
+# settings.yaml — Termbox application settings
+# This is the termbox config. Not the component registry (registry.yaml).
+# Managed by the settings package. Edit manually or via: termbox config set <key> <value>
+
+# ── Display ──────────────────────────────────────────────────────────────────
+display:
+  color: true           # enable colour output in termbox CLI
+  icons: true           # use unicode icons in output
+  pager: false          # pipe long output through $PAGER
+
+# ── Banner ───────────────────────────────────────────────────────────────────
+banner:
+  enabled: true         # show banner on shell start
+  file: ""              # leave empty to use $TERMBOX_HOME/assets/dominiondev.banner
+  color: true           # pipe banner through lolcat if available
+
+# ── Notes ────────────────────────────────────────────────────────────────────
+notes:
+  folder: ""            # leave empty to use $NOTE_FOLDER from termbox.env
+  extension: ".md"      # default file extension for new notes
+  editor: ""            # leave empty to use $EDITOR
+
+# ── Theme ─────────────────────────────────────────────────────────────────────
+theme:
+  active: "catppuccin_mocha"
+  auto_apply: true      # source theme.env on shell start
+
+# ── Powerup ──────────────────────────────────────────────────────────────────
+powerup:
+  active: "core"
+  auto_detect: true     # auto-activate powerups whose env criteria match
+
+# ── Build ─────────────────────────────────────────────────────────────────────
+build:
+  output_dir: "bin"
+  go_flags: ""          # extra flags passed to go build

@@ -1,0 +1,71 @@
+# sheme theme: rosewood
+# Generated from Wondertone palette: Rosewood
+# Apply: termbox sheme apply rosewood
+
+export THEME_NAME="rosewood"
+
+# ── Core Palette ─────────────────────────────────────────────────────────────
+export THEME_BG="#0a0508"
+export THEME_FG="#e0dbda"
+export THEME_PRIMARY="#dd50aa"
+export THEME_SECONDARY="#2199d6"
+export THEME_ACCENT="#dd50aa"
+export THEME_SUCCESS="#42a939"
+export THEME_WARNING="#dd6742"
+export THEME_ERROR="#e7566d"
+export THEME_MUTED="#3f2f38"
+export THEME_BORDER="#23191e"
+
+# ── ANSI 16 ──────────────────────────────────────────────────────────────────
+export THEME_BLACK="#0a0508"
+export THEME_RED="#e7566d"
+export THEME_GREEN="#42a939"
+export THEME_YELLOW="#dd6742"
+export THEME_BLUE="#2199d6"
+export THEME_MAGENTA="#ca4fe6"
+export THEME_CYAN="#38a1a1"
+export THEME_WHITE="#e0dbda"
+export THEME_BRIGHT_BLACK="#31242b"
+export THEME_BRIGHT_RED="#f08d97"
+export THEME_BRIGHT_GREEN="#48ce3d"
+export THEME_BRIGHT_YELLOW="#ef9275"
+export THEME_BRIGHT_BLUE="#48baf9"
+export THEME_BRIGHT_MAGENTA="#dc87f0"
+export THEME_BRIGHT_CYAN="#3ac4c5"
+export THEME_BRIGHT_WHITE="#fdfdfd"
+
+# ── ZSH Syntax Highlighting ───────────────────────────────────────────────────
+typeset -A ZSH_HIGHLIGHT_STYLES 2>/dev/null || true
+ZSH_HIGHLIGHT_STYLES[command]="fg=$THEME_GREEN"
+ZSH_HIGHLIGHT_STYLES[builtin]="fg=$THEME_BLUE"
+ZSH_HIGHLIGHT_STYLES[function]="fg=$THEME_MAGENTA"
+ZSH_HIGHLIGHT_STYLES[alias]="fg=$THEME_MAGENTA,bold"
+ZSH_HIGHLIGHT_STYLES[string]="fg=$THEME_YELLOW"
+ZSH_HIGHLIGHT_STYLES[comment]="fg=$THEME_MUTED"
+ZSH_HIGHLIGHT_STYLES[path]="fg=$THEME_FG,underline"
+ZSH_HIGHLIGHT_STYLES[globbing]="fg=$THEME_WARNING"
+ZSH_HIGHLIGHT_STYLES[unknown-token]="fg=$THEME_ERROR,underline"
+
+# ── ZSH Autosuggestions ───────────────────────────────────────────────────────
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=$THEME_MUTED"
+
+# ── OSC Sequences ────────────────────────────────────────────────────────────
+printf "\033]10;#e0dbda\007"
+printf "\033]11;#0a0508\007"
+printf "\033]12;#dd50aa\007"
+printf "\033]4;0;#0a0508\007"
+printf "\033]4;1;#e7566d\007"
+printf "\033]4;2;#42a939\007"
+printf "\033]4;3;#dd6742\007"
+printf "\033]4;4;#2199d6\007"
+printf "\033]4;5;#ca4fe6\007"
+printf "\033]4;6;#38a1a1\007"
+printf "\033]4;7;#e0dbda\007"
+printf "\033]4;8;#31242b\007"
+printf "\033]4;9;#f08d97\007"
+printf "\033]4;10;#48ce3d\007"
+printf "\033]4;11;#ef9275\007"
+printf "\033]4;12;#48baf9\007"
+printf "\033]4;13;#dc87f0\007"
+printf "\033]4;14;#3ac4c5\007"
+printf "\033]4;15;#fdfdfd\007"

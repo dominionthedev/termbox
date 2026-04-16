@@ -1,0 +1,97 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#  lazygit config — dominionthedev dotfiles
+#  Theme: Catppuccin Mocha
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+gui:
+  scrollHeight: 3
+  scrollPastBottom: true
+  sidePanelWidth: 0.3333
+  expandFocusedSidePanel: true
+  mainPanelSplitMode: "flexible"
+  mouseEvents: true
+  showFileTree: true
+  showListFooter: true
+  showRandomTip: false
+  showCommandLog: true
+  commandLogSize: 8
+  nerdFontsVersion: "3"
+  timeFormat: "02 Jan 06 15:04"
+  shortTimeFormat: "15:04"
+  theme:
+    activeBorderColor:          ["#cba6f7", "bold"]
+    inactiveBorderColor:        ["#45475a"]
+    searchingActiveBorderColor: ["#f9e2af", "bold"]
+    optionsTextColor:           ["#89b4fa"]
+    selectedLineBgColor:        ["#313244"]
+    cherryPickedCommitBgColor:  ["#45475a"]
+    cherryPickedCommitFgColor:  ["#cba6f7"]
+    unstagedChangesColor:       ["#f38ba8"]
+    defaultFgColor:             ["#cdd6f4"]
+
+git:
+  commit:
+    signOff: false
+    autoWrapCommitMessage: true
+    autoWrapWidth: 72
+  merging:
+    manualCommit: false
+  log:
+    order: "topo-order"
+    showGraph: "always"
+  skipHookPrefix: "WIP"
+  autoFetch: true
+  autoRefresh: true
+  fetchAll: true
+  parseEmoji: true
+  branchLogCmd: "git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --"
+
+os:
+  editPreset: "nvim-remote"
+
+refresher:
+  refreshInterval: 10
+  fetchInterval: 60
+
+update:
+  method: "prompt"
+  days: 14
+
+keybinding:
+  universal:
+    quit:                  "q"
+    quit-alt1:             "<c-c>"
+    return:                "<esc>"
+    togglePanel:           "<tab>"
+    prevItem:              "<up>"
+    nextItem:              "<down>"
+    prevItem-alt:          "k"
+    nextItem-alt:          "j"
+    prevPage:              ","
+    nextPage:              "."
+    gotoTop:               "<"
+    gotoBottom:            ">"
+    prevBlock:             "<left>"
+    nextBlock:             "<right>"
+    prevBlock-alt:         "h"
+    nextBlock-alt:         "l"
+    scrollLeft:            "H"
+    scrollRight:           "L"
+    optionMenu:            "x"
+    select:                "<space>"
+    goInto:                "<enter>"
+    confirm:               "<enter>"
+    remove:                "d"
+    new:                   "n"
+    edit:                  "e"
+    openFile:              "o"
+    pushFiles:             "P"
+    pullFiles:             "p"
+    refresh:               "R"
+    nextTab:               "]"
+    prevTab:               "["
+    undo:                  "z"
+    redo:                  "<c-z>"
+    copyToClipboard:       "<c-o>"
+    filteringMenu:         "<c-s>"
+    diffingMenu:           "W"

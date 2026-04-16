@@ -1,0 +1,71 @@
+# sheme theme: aurora
+# Generated from Wondertone palette: Aurora
+# Apply: termbox sheme apply aurora
+
+export THEME_NAME="aurora"
+
+# ── Core Palette ─────────────────────────────────────────────────────────────
+export THEME_BG="#f1f4f4"
+export THEME_FG="#0d1213"
+export THEME_PRIMARY="#327476"
+export THEME_SECONDARY="#20709c"
+export THEME_ACCENT="#327476"
+export THEME_SUCCESS="#337b2d"
+export THEME_WARNING="#a14d33"
+export THEME_ERROR="#ac3c4f"
+export THEME_MUTED="#fdfdfd"
+export THEME_BORDER="#fdfdfd"
+
+# ── ANSI 16 ──────────────────────────────────────────────────────────────────
+export THEME_BLACK="#f1f4f4"
+export THEME_RED="#ac3c4f"
+export THEME_GREEN="#337b2d"
+export THEME_YELLOW="#a14d33"
+export THEME_BLUE="#20709c"
+export THEME_MAGENTA="#943ca7"
+export THEME_CYAN="#2d7676"
+export THEME_WHITE="#0d1213"
+export THEME_BRIGHT_BLACK="#fdfdfd"
+export THEME_BRIGHT_RED="#de4964"
+export THEME_BRIGHT_GREEN="#3d9e35"
+export THEME_BRIGHT_YELLOW="#cf603d"
+export THEME_BRIGHT_BLUE="#1e90c9"
+export THEME_BRIGHT_MAGENTA="#be48d8"
+export THEME_BRIGHT_CYAN="#349797"
+export THEME_BRIGHT_WHITE="#21292c"
+
+# ── ZSH Syntax Highlighting ───────────────────────────────────────────────────
+typeset -A ZSH_HIGHLIGHT_STYLES 2>/dev/null || true
+ZSH_HIGHLIGHT_STYLES[command]="fg=$THEME_GREEN"
+ZSH_HIGHLIGHT_STYLES[builtin]="fg=$THEME_BLUE"
+ZSH_HIGHLIGHT_STYLES[function]="fg=$THEME_MAGENTA"
+ZSH_HIGHLIGHT_STYLES[alias]="fg=$THEME_MAGENTA,bold"
+ZSH_HIGHLIGHT_STYLES[string]="fg=$THEME_YELLOW"
+ZSH_HIGHLIGHT_STYLES[comment]="fg=$THEME_MUTED"
+ZSH_HIGHLIGHT_STYLES[path]="fg=$THEME_FG,underline"
+ZSH_HIGHLIGHT_STYLES[globbing]="fg=$THEME_WARNING"
+ZSH_HIGHLIGHT_STYLES[unknown-token]="fg=$THEME_ERROR,underline"
+
+# ── ZSH Autosuggestions ───────────────────────────────────────────────────────
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=$THEME_MUTED"
+
+# ── OSC Sequences ────────────────────────────────────────────────────────────
+printf "\033]10;#0d1213\007"
+printf "\033]11;#f1f4f4\007"
+printf "\033]12;#327476\007"
+printf "\033]4;0;#f1f4f4\007"
+printf "\033]4;1;#ac3c4f\007"
+printf "\033]4;2;#337b2d\007"
+printf "\033]4;3;#a14d33\007"
+printf "\033]4;4;#20709c\007"
+printf "\033]4;5;#943ca7\007"
+printf "\033]4;6;#2d7676\007"
+printf "\033]4;7;#0d1213\007"
+printf "\033]4;8;#fdfdfd\007"
+printf "\033]4;9;#de4964\007"
+printf "\033]4;10;#3d9e35\007"
+printf "\033]4;11;#cf603d\007"
+printf "\033]4;12;#1e90c9\007"
+printf "\033]4;13;#be48d8\007"
+printf "\033]4;14;#349797\007"
+printf "\033]4;15;#21292c\007"

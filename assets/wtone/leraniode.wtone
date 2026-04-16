@@ -1,0 +1,50 @@
+name        = "Leraniode"
+description = "Leraniode Silk scenario — purple primary, deep void background"
+mood        = "focused"
+version     = "1.0.0"
+author      = "leraniode"
+
+[[colors]]
+name   = "Base"
+l      = 0.12
+c      = 0.04
+h      = 270.0
+energy = 1.0
+mood   = "grounding"
+
+[[colors]]
+name   = "Text"
+l      = 0.88
+c      = 0.04
+h      = 270.0
+energy = 0.95
+mood   = "clear"
+
+[[colors]]
+name   = "Accent"
+l      = 0.65
+c      = 0.22
+h      = 280.0
+energy = 1.0
+mood   = "vibrant"
+
+[[colors]]
+name   = "Success"
+l      = 0.72
+c      = 0.20
+h      = 142.0
+energy = 0.95
+
+[[colors]]
+name   = "Warning"
+l      = 0.75
+c      = 0.18
+h      = 55.0
+energy = 0.90
+
+[[colors]]
+name   = "Error"
+l      = 0.65
+c      = 0.22
+h      = 14.0
+energy = 0.95

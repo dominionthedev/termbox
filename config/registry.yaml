@@ -1,0 +1,226 @@
+# registry.yaml — Termbox component registry
+# This is the COMPONENT REGISTRY, not the settings.
+# Settings live in config/settings.yaml.
+# Managed by: termbox add / termbox remove / termbox build
+
+tools:
+  # ── termbox CLI ──────────────────────────────────────────────────────────────
+  - name: termbox
+    kind: tool
+    path: cmd/termbox
+    description: "Main termbox CLI"
+    active: false
+
+  # ── standalone tools (built into bin/, live in tools/) ───────────────────────
+  - name: noter
+    kind: tool
+    path: tools/noter
+    description: "Note manager — open/create/list/search notes in $NOTE_FOLDER"
+    active: false
+
+  - name: banner
+    kind: tool
+    path: tools/banner
+    description: "Banner manager — show/configure the startup banner"
+    active: false
+
+scripts:
+  # ── core powerup ────────────────────────────────────────────────────────────
+  - name: search
+    kind: script
+    path: scripts/shell/search.sh
+    description: "ripgrep + fzf + bat → open in nvim"
+    active: true
+  - name: fkill
+    kind: script
+    path: scripts/shell/fkill.sh
+    description: "Interactive process killer"
+    active: true
+  - name: serve
+    kind: script
+    path: scripts/shell/serve.sh
+    description: "Serve current directory over HTTP"
+    active: true
+  - name: extract
+    kind: script
+    path: scripts/shell/extract.sh
+    description: "Extract any archive format"
+    active: true
+  - name: stats
+    kind: script
+    path: scripts/dev/stats.sh
+    description: "Code statistics (tokei/cloc fallback)"
+    active: true
+  - name: diagnostics
+    kind: script
+    path: scripts/diagnostics.sh
+    description: "Quick termbox + system health check"
+    active: true
+  - name: gci
+    kind: script
+    path: scripts/git/gci.sh
+    description: "Conventional commit helper — interactive"
+    active: true
+
+  # ── container powerup ────────────────────────────────────────────────────────
+  - name: dex
+    kind: script
+    path: scripts/container/dex.sh
+    description: "Exec into a container — podman-first, docker fallback"
+    active: false
+  - name: cpods
+    kind: script
+    path: scripts/container/cpods.sh
+    description: "List running containers"
+    active: false
+  - name: clogs
+    kind: script
+    path: scripts/container/clogs.sh
+    description: "Tail container logs interactively"
+    active: false
+  - name: cclean
+    kind: script
+    path: scripts/container/cclean.sh
+    description: "Clean stopped containers and dangling images"
+    active: false
+
+  # ── tmux hooks ───────────────────────────────────────────────────────────────
+  - name: tmux-git-status
+    kind: script
+    path: scripts/tmux/git-status.sh
+    description: "Git branch/status for tmux status bar"
+    active: true
+  - name: tmux-new-session
+    kind: script
+    path: scripts/tmux/new-session.sh
+    description: "Hook: new tmux session created"
+    active: true
+  - name: tmux-new-window
+    kind: script
+    path: scripts/tmux/new-window.sh
+    description: "Hook: auto-rename window to cwd"
+    active: true
+
+  # ── tmux layout templates ────────────────────────────────────────────────────
+  - name: tmux-layout-default
+    kind: script
+    path: scripts/tmux/templates/default.sh
+    description: "Default 3-pane tmux layout"
+    active: false
+  - name: tmux-layout-dev
+    kind: script
+    path: scripts/tmux/templates/dev.sh
+    description: "Dev layout: editor/git/terminal/logs"
+    active: false
+  - name: tmux-layout-ops
+    kind: script
+    path: scripts/tmux/templates/ops.sh
+    description: "Ops layout: monitor/logs/docker/kubectl"
+    active: false
+
+  # ── starship scripts ──────────────────────────────────────────────────────────
+  - name: starship-git-detailed
+    kind: script
+    path: scripts/starship/git-detailed.sh
+    description: "Detailed git stats for Starship custom module"
+    active: false
+  - name: starship-docker-status
+    kind: script
+    path: scripts/starship/docker-status.sh
+    description: "Docker container count for Starship"
+    active: false
+  - name: starship-k8s-context
+    kind: script
+    path: scripts/starship/k8s-context.sh
+    description: "Kubernetes context for Starship"
+    active: false
+
+configs:
+  # ── shell (addition) — sourced from ~/.zshrc ──────────────────────────────
+  - name: zshrc
+    kind: config
+    config_kind: addition
+    app: zsh
+    path: config/shell/zshrc
+    description: "ZSH config — sourced via termbox.env, never copied"
+    active: true
+
+  # ── nvim (templates) ──────────────────────────────────────────────────────
+  - name: default
+    kind: config
+    config_kind: template
+    app: nvim
+    path: config/nvim/default.nvim
+    target: ~/.config/nvim
+    description: "Default nvim config (lazy.nvim + catppuccin + LSP)"
+    active: false
+
+  # ── tmux (addition OR template) ───────────────────────────────────────────
+  # addition: add `source-file $TERMBOX_HOME/config/tmux/default.conf` to your tmux.conf
+  # template: `termbox use tmux.default` copies default.conf → ~/.config/tmux/tmux.conf
+  - name: default
+    kind: config
+    config_kind: template
+    app: tmux
+    path: config/tmux/default.conf
+    target: ~/.config/tmux/tmux.conf
+    description: "Default tmux config — Catppuccin, vim keys, tpm plugins"
+    active: false
+
+  # ── starship (main) ───────────────────────────────────────────────────────
+  - name: default
+    kind: config
+    config_kind: main
+    app: starship
+    path: config/starship/default.toml
+    target: ~/.config/starship/starship.toml
+    description: "Default starship prompt config"
+    active: false
+
+  # ── lazygit (main) ────────────────────────────────────────────────────────
+  - name: default
+    kind: config
+    config_kind: main
+    app: lazygit
+    path: config/lazygit/default
+    target: ~/.config/lazygit
+    description: "Default lazygit config"
+    active: false
+
+  # ── alacritty (main) ──────────────────────────────────────────────────────
+  - name: default
+    kind: config
+    config_kind: main
+    app: alacritty
+    path: config/alacritty/default.toml
+    target: ~/.config/alacritty/alacritty.toml
+    description: "Default alacritty config"
+    active: false
+
+  # ── zellij (main) ─────────────────────────────────────────────────────────
+  - name: default
+    kind: config
+    config_kind: main
+    app: zellij
+    path: config/zellij/default.kdl
+    target: ~/.config/zellij/config.kdl
+    description: "Default zellij config"
+    active: false
+
+  - name: shelldoctor
+    kind: tool
+    path: tools/shelldoctor
+    description: "Shell environment health checker — PATH, config, tools, startup time"
+    active: false
+
+  - name: shellconfig
+    kind: tool
+    path: tools/shellconfig
+    description: "Shell config manager — view, backup, restore, diff"
+    active: false
+
+  - name: spicer
+    kind: tool
+    path: tools/spicer
+    description: "Spice loader — manage shell function/alias packs loaded at startup"
+    active: false

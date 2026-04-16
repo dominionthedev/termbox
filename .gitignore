@@ -1,0 +1,23 @@
+# python 
+__pycache__/
+*.pyc
+.env
+.venv/
+venv/
+
+# dev folders
+.idea/
+.vscode/
+.DS_Store
+
+# go
+pkg
+*.sum
+vendor
+
+# crush
+.crush
+
+# experimental and dev
+taskfile.yml
+track.md

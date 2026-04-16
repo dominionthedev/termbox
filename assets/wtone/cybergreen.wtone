@@ -1,0 +1,33 @@
+name        = "CyberGreen"
+description = "ARK0NDB Action palette — terminal green on void black"
+mood        = "electric"
+version     = "1.0.0"
+author      = "leraniode"
+
+[[colors]]
+name   = "Base"
+oklch  = "0.07 0.02 142"
+energy = 1.0
+mood   = "grounding"
+
+[[colors]]
+name   = "Text"
+l      = 0.82
+c      = 0.08
+h      = 142.0
+energy = 0.90
+
+[[colors]]
+name   = "Accent"
+l      = 0.75
+c      = 0.28
+h      = 142.0
+energy = 1.0
+mood   = "electric"
+
+[[colors]]
+name   = "Secondary"
+l      = 0.70
+c      = 0.22
+h      = 196.0
+energy = 0.95

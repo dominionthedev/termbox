@@ -1,0 +1,11 @@
+I already lost this config due to symlinking and there was no backup,
+as the file was destroyed and i never copied it into my backup folder
+
+files in this folder will be <name>.conf, where <name> is the name of the tmux config
+
+these configs are supposed to be treated as templates or additions not the main source:
+Template can be swipped, if i want to use a config in this tmux folder for tmux,
+i can just `termbox use tmux.<name>` to swipe the current tmux config with the <name>.conf i choose, and the tmux config termbox is removing will be saved into default.conf or a bak file
+Additions is like the shell config, just source the tmux config from the main tmux config
+
+I was able to recover the old version of my tmux config, just make the theme catppucin and upgrade the status bar

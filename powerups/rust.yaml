@@ -1,0 +1,13 @@
+name: rust
+description: "Rust development tools — cargo helpers"
+version: "1.0.0"
+scripts:
+  - stats
+tools: []
+rules:
+  always: false
+  requires:
+    - cargo
+  env:
+    - kind: file_exists
+      value: Cargo.toml

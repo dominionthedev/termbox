@@ -1,0 +1,14 @@
+# powerups.yaml — index of available powerups
+# Activate one with: termbox powerup activate <n>
+# Or set TERMBOX_POWERUP in config/termbox.env
+
+powerups:
+  - name: core
+    file: powerups/core.yaml
+    active: true
+  - name: container
+    file: powerups/container.yaml
+    active: false
+  - name: git
+    file: powerups/git.yaml
+    active: false

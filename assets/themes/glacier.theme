@@ -1,0 +1,71 @@
+# sheme theme: glacier
+# Generated from Wondertone palette: Glacier
+# Apply: termbox sheme apply glacier
+
+export THEME_NAME="glacier"
+
+# ── Core Palette ─────────────────────────────────────────────────────────────
+export THEME_BG="#060909"
+export THEME_FG="#c7dadb"
+export THEME_PRIMARY="#62bbbb"
+export THEME_SECONDARY="#5bb5eb"
+export THEME_ACCENT="#62bbbb"
+export THEME_SUCCESS="#62c558"
+export THEME_WARNING="#e3947b"
+export THEME_ERROR="#e48f97"
+export THEME_MUTED="#2f3939"
+export THEME_BORDER="#192020"
+
+# ── ANSI 16 ──────────────────────────────────────────────────────────────────
+export THEME_BLACK="#060909"
+export THEME_RED="#e48f97"
+export THEME_GREEN="#62c558"
+export THEME_YELLOW="#e3947b"
+export THEME_BLUE="#5bb5eb"
+export THEME_MAGENTA="#d38be3"
+export THEME_CYAN="#5bbdbd"
+export THEME_WHITE="#c7dadb"
+export THEME_BRIGHT_BLACK="#242c2c"
+export THEME_BRIGHT_RED="#f0bbbe"
+export THEME_BRIGHT_GREEN="#6deb61"
+export THEME_BRIGHT_YELLOW="#efbdae"
+export THEME_BRIGHT_BLUE="#9dd2f5"
+export THEME_BRIGHT_MAGENTA="#e5b8f0"
+export THEME_BRIGHT_CYAN="#63e1e2"
+export THEME_BRIGHT_WHITE="#f4f7f7"
+
+# ── ZSH Syntax Highlighting ───────────────────────────────────────────────────
+typeset -A ZSH_HIGHLIGHT_STYLES 2>/dev/null || true
+ZSH_HIGHLIGHT_STYLES[command]="fg=$THEME_GREEN"
+ZSH_HIGHLIGHT_STYLES[builtin]="fg=$THEME_BLUE"
+ZSH_HIGHLIGHT_STYLES[function]="fg=$THEME_MAGENTA"
+ZSH_HIGHLIGHT_STYLES[alias]="fg=$THEME_MAGENTA,bold"
+ZSH_HIGHLIGHT_STYLES[string]="fg=$THEME_YELLOW"
+ZSH_HIGHLIGHT_STYLES[comment]="fg=$THEME_MUTED"
+ZSH_HIGHLIGHT_STYLES[path]="fg=$THEME_FG,underline"
+ZSH_HIGHLIGHT_STYLES[globbing]="fg=$THEME_WARNING"
+ZSH_HIGHLIGHT_STYLES[unknown-token]="fg=$THEME_ERROR,underline"
+
+# ── ZSH Autosuggestions ───────────────────────────────────────────────────────
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=$THEME_MUTED"
+
+# ── OSC Sequences ────────────────────────────────────────────────────────────
+printf "\033]10;#c7dadb\007"
+printf "\033]11;#060909\007"
+printf "\033]12;#62bbbb\007"
+printf "\033]4;0;#060909\007"
+printf "\033]4;1;#e48f97\007"
+printf "\033]4;2;#62c558\007"
+printf "\033]4;3;#e3947b\007"
+printf "\033]4;4;#5bb5eb\007"
+printf "\033]4;5;#d38be3\007"
+printf "\033]4;6;#5bbdbd\007"
+printf "\033]4;7;#c7dadb\007"
+printf "\033]4;8;#242c2c\007"
+printf "\033]4;9;#f0bbbe\007"
+printf "\033]4;10;#6deb61\007"
+printf "\033]4;11;#efbdae\007"
+printf "\033]4;12;#9dd2f5\007"
+printf "\033]4;13;#e5b8f0\007"
+printf "\033]4;14;#63e1e2\007"
+printf "\033]4;15;#f4f7f7\007"

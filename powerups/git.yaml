@@ -1,0 +1,14 @@
+name: git
+description: "Git workflow — conventional commits, repo scanner"
+version: "1.0.0"
+scripts:
+  - gci
+tools: []
+rules:
+  always: false
+  requires:
+    - git
+    - fzf
+  env:
+    - kind: dir_exists
+      value: .git
