@@ -1,0 +1,71 @@
+# sheme theme: luxurygold
+# Generated from Wondertone palette: LuxuryGold
+# Apply: termbox sheme apply luxurygold
+
+export THEME_NAME="luxurygold"
+
+# ── Core Palette ─────────────────────────────────────────────────────────────
+export THEME_BG="#00000000"
+export THEME_FG="#00000000"
+export THEME_PRIMARY="#00000000"
+export THEME_SECONDARY="#3389ba"
+export THEME_ACCENT="#00000000"
+export THEME_SUCCESS="#46953e"
+export THEME_WARNING="#c06144"
+export THEME_ERROR="#cc5063"
+export THEME_MUTED="#0d0d0d00"
+export THEME_BORDER="#01010100"
+
+# ── ANSI 16 ──────────────────────────────────────────────────────────────────
+export THEME_BLACK="#00000000"
+export THEME_RED="#cc5063"
+export THEME_GREEN="#46953e"
+export THEME_YELLOW="#c06144"
+export THEME_BLUE="#3389ba"
+export THEME_MAGENTA="#b150c7"
+export THEME_CYAN="#408f8f"
+export THEME_WHITE="#00000000"
+export THEME_BRIGHT_BLACK="#04040400"
+export THEME_BRIGHT_RED="#e67884"
+export THEME_BRIGHT_GREEN="#51b947"
+export THEME_BRIGHT_YELLOW="#e57e5e"
+export THEME_BRIGHT_BLUE="#35a9e8"
+export THEME_BRIGHT_MAGENTA="#cf72e5"
+export THEME_BRIGHT_CYAN="#48b1b1"
+export THEME_BRIGHT_WHITE="#01010100"
+
+# ── ZSH Syntax Highlighting ───────────────────────────────────────────────────
+typeset -A ZSH_HIGHLIGHT_STYLES 2>/dev/null || true
+ZSH_HIGHLIGHT_STYLES[command]="fg=$THEME_GREEN"
+ZSH_HIGHLIGHT_STYLES[builtin]="fg=$THEME_BLUE"
+ZSH_HIGHLIGHT_STYLES[function]="fg=$THEME_MAGENTA"
+ZSH_HIGHLIGHT_STYLES[alias]="fg=$THEME_MAGENTA,bold"
+ZSH_HIGHLIGHT_STYLES[string]="fg=$THEME_YELLOW"
+ZSH_HIGHLIGHT_STYLES[comment]="fg=$THEME_MUTED"
+ZSH_HIGHLIGHT_STYLES[path]="fg=$THEME_FG,underline"
+ZSH_HIGHLIGHT_STYLES[globbing]="fg=$THEME_WARNING"
+ZSH_HIGHLIGHT_STYLES[unknown-token]="fg=$THEME_ERROR,underline"
+
+# ── ZSH Autosuggestions ───────────────────────────────────────────────────────
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=$THEME_MUTED"
+
+# ── OSC Sequences ────────────────────────────────────────────────────────────
+printf "\033]10;#00000000\007"
+printf "\033]11;#00000000\007"
+printf "\033]12;#00000000\007"
+printf "\033]4;0;#00000000\007"
+printf "\033]4;1;#cc5063\007"
+printf "\033]4;2;#46953e\007"
+printf "\033]4;3;#c06144\007"
+printf "\033]4;4;#3389ba\007"
+printf "\033]4;5;#b150c7\007"
+printf "\033]4;6;#408f8f\007"
+printf "\033]4;7;#00000000\007"
+printf "\033]4;8;#04040400\007"
+printf "\033]4;9;#e67884\007"
+printf "\033]4;10;#51b947\007"
+printf "\033]4;11;#e57e5e\007"
+printf "\033]4;12;#35a9e8\007"
+printf "\033]4;13;#cf72e5\007"
+printf "\033]4;14;#48b1b1\007"
+printf "\033]4;15;#01010100\007"
